@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speak Your Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Speak your order</h1>
+  <nav role="tablist" aria-label="View">
+    <button role="tab" id="tabO" aria-selected="true">Order</button>
+    <button role="tab" id="tabK" aria-selected="false">Kitchen<span class="n" id="cnt">0</span></button>
+  </nav>
+</header>
+<main>
+<section id="vOrder">
+  <div class="stage">
+    <div class="panel mic-wrap">
+      <button class="mic" id="mic" aria-label="Start listening">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+      </button>
+      <div class="status" id="status">Starting the microphone…</div>
+      <a id="openTab" class="btn acc hide" target="_blank" rel="noopener" style="text-decoration:none">Open in full page</a>
+      <div class="heard" id="heard" aria-live="polite"></div>
+      <div class="try">Try: “Two margherita pizzas and a mango lassi.” Say “remove the fries” to take something off, or “place order” when you’re done.</div>
+      <form class="row" id="typed" autocomplete="off"><input type="text" id="txt" placeholder="Or type your order here" aria-label="Type your order"><button class="btn ghost" type="submit">Add</button></form>
+      <div class="opts">
+        <label>Language <select id="lang"><option value="en-US">English (US)</option><option value="en-GB">English (UK)</option><option value="en-IN">English (India)</option></select></label>
+        <label><input type="checkbox" id="speak" checked> Read replies aloud</label>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Your order</h2>
+      <div id="cart"></div>
+      <div class="total"><span>Total</span><span id="total">$0.00</span></div>
+      <div class="place">
+        <input type="text" id="table" placeholder="Table or name" aria-label="Table number or name" style="flex:1 1 140px">
+        <button class="btn ghost" id="clear">Clear</button>
+        <button class="btn acc" id="place">Send to kitchen</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu" id="menu" aria-label="Menu"></div>
+</section>
+<section id="vKitchen" class="hide">
+  <h2>Incoming orders</h2>
+  <div class="orders" id="orders"></div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
